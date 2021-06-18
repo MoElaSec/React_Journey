@@ -3,7 +3,7 @@ import Tweet from "./Tweet";
 import "./App.css";
 
 function App() {
-    const [user, setUser] = useState([
+    const [users, setUsers] = useState([
         { name: "MoEla", message: "Hello, there!" },
         { name: "Shifra Sec", message: "Sup!" },
         { name: "Jhon Snow", message: "I'm Jhon Snow!" },
@@ -11,9 +11,9 @@ function App() {
 
     return (
         <div className="app">
-            <h1 className={isRed ? "red" : ""}>Change my color!</h1>
-            <button onClick={Increment}>Increment</button>
-            <h1>{count}</h1>
+            {users.map((user) => (
+                <Tweet name={user.name} message={user.message} />
+            ))}
         </div>
     );
 }
